@@ -1,0 +1,12 @@
+td:not(:last-child) {
+    border: 2px solid black;
+    padding: 2px;
+    margin: 0px;
+    text-align: center;
+}
+body{
+    background-color: white;
+}
+table{
+    border-collapse: collapse;
+}
