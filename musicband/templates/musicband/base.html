@@ -5,72 +5,44 @@
     <meta charset="UTF-8">
     <title>MusicBand</title>
     <link rel="stylesheet" href="{% static "musicband/style.css" %}" type="text/css">
+    <link rel="icon" href="{% static "musicband/favicon.ico" %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 </head>
 <body>
+    {% if troubles %}
+        <h1>{{ troubles }}</h1>
+    {% endif %}
+    <button class="New_Record">Add New</button>
     <table class="main_instument_table">
         <tbody>
             <tr class="table_header">
-                {% for k,v in dict %}
-                        {% if k == 'id' %}
-                        {% else %}
-                            <th>{{ k }}</th>
-                        {% endif %}
-                    {% endfor %}
+                <th>Название</th>
+                <th>Свойства</th>
+                <th>Инвентарный номер</th>
+                <th>Тип инструмента</th>
+                <th>Тип комплекта</th>
+                <th>Колич комплектов</th>
+                <th>Дата внесения</th>
+                <th>Ответственный</th>
             </tr>
             {% for instrument in data %}
                 <tr id="{{ instrument.id }}">
-                    {% for k,v in dict %}
+                    {% for k,v in instrument.items %}
                         {% if k == 'id' %}
+                            <td data-key="{{ k }}" style="display:none">{{ v }}</td>
                         {% else %}
                             <td data-key="{{ k }}">{{ v }}</td>
                         {% endif %}
                     {% endfor %}
                     <td>
                         <button class="redact">Ред</button>
-                        <button class="save">Сохр</button>
+                        <button class="delete">Удалить</button>
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 </body>
-<script>
-        // Функция включения редактирования таблицы
-    $(".redact").click(function () {
-        if ($("td").not(":last-child").attr("contenteditable")){
-            $("td").not(":last-child").removeAttr("contenteditable");
-            $("td").not(":last-child").css("border","2px solid black");
-            $(".redact").text("Ред");
-        }else {
-            $("td").not(":last-child").not("td[data-key = pub_date]").attr("contenteditable","True");
-            $("td").not(":last-child").css("border","2px solid skyblue");
-            $(".redact").text("Отм.Ред")
-        }
-    });
-    // Функция отправки данных из таблицы на сервер (работает бляу)
-    $(".save").click(function () {
-        var td_list =  $("td").not(":last-child"); // выбираются все td кроме последней с кнопками
-        var diction = {}
-        for (var i = 0;i<td_list.length;i++){
-            if (td_list[i].dataset.key == "pub_date"){
-
-            }else{
-                diction[td_list[i].dataset.key] = td_list[i].innerText
-            }
-        }
-        var dict = JSON.stringify(diction); // словарь js в JSON
-        var instr_id = $(this).parent().parent().attr("id"); // id интсрумента данные которого редактируются
-        var info = {csrfmiddlewaretoken:"{{ csrf_token }}", td_inf:dict, i_id:instr_id}; // все данные передаются на сервер в списке
-
-        $.post("",info,function () {
-            if ($("td").not(":last-child").attr("contenteditable")){
-                $("td").not(":last-child").removeAttr("contenteditable");
-                $("td").not(":last-child").css("border","2px solid black");
-                $(".redact").text("Ред");
-            }
-        });
-    });
-    // Здесь будет функция добавления нового инструмента в базу
-</script>
+<script src="{% static "musicband/instr_list.js" %}"></script>
 </html>
