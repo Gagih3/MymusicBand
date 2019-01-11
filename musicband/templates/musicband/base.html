@@ -10,12 +10,12 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 </head>
 <body>
-    {% if troubles %}
-        <h1>{{ troubles }}</h1>
-    {% endif %}
+    {% block wtf %}
+    
+    {% endblock %}
     <button class="New_Record">Add New</button>
-    <table class="main_instument_table">
-        <tbody>
+    <table class="main_instument_table" id="main_table">
+        <tbody id="main_table_content">
             <tr class="table_header">
                 <th>Название</th>
                 <th>Свойства</th>
@@ -30,9 +30,9 @@
                 <tr id="{{ instrument.id }}">
                     {% for k,v in instrument.items %}
                         {% if k == 'id' %}
-                            <td data-key="{{ k }}" style="display:none">{{ v }}</td>
+                            <td data-key="{{ k }}" style="display:none">{{ v|default_if_none:"" }}</td>
                         {% else %}
-                            <td data-key="{{ k }}">{{ v }}</td>
+                            <td data-key="{{ k }}">{{ v|default_if_none:"" }}</td>
                         {% endif %}
                     {% endfor %}
                     <td>

@@ -23,7 +23,9 @@ var csrftoken = Cookies.get("csrftoken"); // получает токен без�
                 var dit = {};
                 st.map(function (k,v) {return dit[v.dataset.key] = v.innerText}); // создаёт словарь ключ значение из текущей строки на сайт
                 dit = JSON.stringify(dit); // перводит в JSON полученый ранее словарь
-                $.post("",{csrfmiddlewaretoken:csrftoken, json_table:dit}); // отправляет данные методом ajax POST
+                $.post("",{csrfmiddlewaretoken:csrftoken, json_table:dit},function () {
+                            $("#main_table").load(document.URL + " #main_table_content") //обновляет тело таблице после сохранения
+                        }); // отправляет данные методом ajax POST
                 let td = $(event.target).parent().siblings("td").not(":last-child");
                 td.removeAttr("contenteditable");
                 td.toggleClass("skyblue");
@@ -78,6 +80,9 @@ var csrftoken = Cookies.get("csrftoken"); // получает токен без�
                         dataType: 'text',
                         beforeSend: function (xhr) {
                             xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                        },
+                        success: function () {
+                            $("#main_table").load(document.URL + " #main_table_content") //обновляет тело таблице после сохранения
                         },
                     });
                 };

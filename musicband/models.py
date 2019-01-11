@@ -4,14 +4,14 @@ from django.utils import timezone
 
 class Instrument(models.Model):
     """Модель элемента музыкального инвенторя"""
-    instrument_name = models.CharField(max_length=100)
-    instrument_property = models.TextField(max_length=150, blank=True)
-    inventory_id = models.CharField(max_length=10)
-    instrument_type = models.CharField(max_length=25)
-    kit_type = models.CharField(max_length=15)
-    kit_count = models.SmallIntegerField()
+    instrument_name = models.CharField(max_length=100, blank=True, null=True)
+    instrument_property = models.TextField(max_length=150, blank=True, null=True)
+    inventory_id = models.CharField(max_length=10, blank=True, null=True)
+    instrument_type = models.CharField(max_length=25, blank=True, null=True)
+    kit_type = models.CharField(max_length=15, blank=True, null=True)
+    kit_count = models.SmallIntegerField(blank=True, null=True)
     pub_date = models.DateTimeField(default=timezone.now)
-    responsible = models.CharField(max_length=60, blank=True)
+    responsible = models.CharField(max_length=60, blank=True, null=True)
 
     def __str__(self):
         return f"{self.instrument_name}"

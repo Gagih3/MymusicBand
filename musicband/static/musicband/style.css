@@ -1,5 +1,5 @@
 td:not(:last-child) {
-    border: 2px solid black;
+    border: 2px solid lightgray;
     padding: 2px;
     margin: 0px;
     text-align: center;
@@ -19,7 +19,8 @@ td:last-child > button{
 
 tr{
     width: auto;
-    height: auto;
+    height: 30px;
+    max-height:50px;
 }
 div.confirm-delete{
     top:30%;
@@ -43,4 +44,8 @@ div.shadow{
     top: 0px;
     left: 0px;
     background-color: rgba(0, 0, 0, 0.5);
+}
+tr:not(:first-child):hover{
+    transform: scale(1.01);
+    box-shadow:0 0 3mm 0 black ;
 }
