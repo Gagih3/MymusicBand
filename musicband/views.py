@@ -36,7 +36,7 @@ class MainView (View):
                 else:
                     new = Instrument.objects.create(**get_dict)
                     return render(request, self.template_name)
-            except MultiValueDictKeyError :
+            except MultiValueDictKeyError:
                 return render(request, self.template_name, context={"troubles": "don't get json fields to update"})
 
     def delete(self, request):

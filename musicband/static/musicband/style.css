@@ -6,6 +6,12 @@ td:not(:last-child) {
 }
 body{
     background-color: white;
+    font-family: 'Poiret One', cursive;
+
+}
+tr:first-child{
+    font-weight: bolder;
+    font-size: 15px;
 }
 table{
     border-collapse: separate;
@@ -21,6 +27,8 @@ tr{
     width: auto;
     height: 30px;
     max-height:50px;
+    font-weight: 600;
+    font-size: 13px;
 }
 div.confirm-delete{
     top:30%;
@@ -45,7 +53,27 @@ div.shadow{
     left: 0px;
     background-color: rgba(0, 0, 0, 0.5);
 }
+tbody{
+    perspective: 400px;
+    transform-style: preserve-3d;
+}
 tr:not(:first-child):hover{
-    transform: scale(1.01);
     box-shadow:0 0 3mm 0 black ;
+}
+
+i.fa-plus-square{
+    font-size: 25px;
+}
+i.fa-edit{
+    font-size: 18px;
+}
+i.fa-trash-alt{
+    font-size: 18px;
+}
+i.fa-save{
+    font-size: 18px;
+}
+i:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }

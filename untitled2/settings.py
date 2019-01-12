@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,7 +76,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'untitled2.wsgi.application'
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
+LOGIN_REDIRECT_URL = '/musicband'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/musicband'
+LOGIN_URL = '/accounts/login'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -123,3 +135,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CSRF_USE_SESSIONS = False
+
+SITE_ID = 1

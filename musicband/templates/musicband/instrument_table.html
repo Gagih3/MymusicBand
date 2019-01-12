@@ -1,5 +1,33 @@
-{% extends "musicband/base.html" %}
 
-{% block wtf %}
-   <div>WTF???</div>
+{% block instrtable %}
+    <table class="main_instument_table" id="main_table">
+        <tbody id="main_table_content">
+            <tr class="table_header">
+                <th>Название</th>
+                <th>Свойства</th>
+                <th>Инвентарный номер</th>
+                <th>Тип инструмента</th>
+                <th>Тип комплекта</th>
+                <th>Колич комплектов</th>
+                <th>Дата внесения</th>
+                <th>Ответственный</th>
+            </tr>
+            {% for instrument in data %}
+                <tr id="{{ instrument.id }}">
+                    {% for k,v in instrument.items %}
+                        {% if k == 'id' %}
+                            <td data-key="{{ k }}" style="display:none">{{ v|default_if_none:"" }}</td>
+                        {% else %}
+                            <td data-key="{{ k }}">{{ v|default_if_none:"" }}</td>
+                        {% endif %}
+                    {% endfor %}
+                    <td>
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-alt"></i>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <i class="fas fa-plus-square"></i>
 {% endblock %}

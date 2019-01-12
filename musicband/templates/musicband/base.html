@@ -4,45 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>MusicBand</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="{% static "musicband/style.css" %}" type="text/css">
     <link rel="icon" href="{% static "musicband/favicon.ico" %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 </head>
 <body>
-    {% block wtf %}
-    
+    {% block instrtable %}
+        {% include "musicband/instrument_table.html" %}
     {% endblock %}
-    <button class="New_Record">Add New</button>
-    <table class="main_instument_table" id="main_table">
-        <tbody id="main_table_content">
-            <tr class="table_header">
-                <th>Название</th>
-                <th>Свойства</th>
-                <th>Инвентарный номер</th>
-                <th>Тип инструмента</th>
-                <th>Тип комплекта</th>
-                <th>Колич комплектов</th>
-                <th>Дата внесения</th>
-                <th>Ответственный</th>
-            </tr>
-            {% for instrument in data %}
-                <tr id="{{ instrument.id }}">
-                    {% for k,v in instrument.items %}
-                        {% if k == 'id' %}
-                            <td data-key="{{ k }}" style="display:none">{{ v|default_if_none:"" }}</td>
-                        {% else %}
-                            <td data-key="{{ k }}">{{ v|default_if_none:"" }}</td>
-                        {% endif %}
-                    {% endfor %}
-                    <td>
-                        <button class="redact">Ред</button>
-                        <button class="delete">Удалить</button>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
 </body>
 <script src="{% static "musicband/instr_list.js" %}"></script>
 </html>
