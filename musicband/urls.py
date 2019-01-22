@@ -18,5 +18,5 @@ from .views import MainView
 
 urlpatterns = [
     path('musicband/', MainView.as_view()),
-    path('musicband/accounts/', include('allauth.urls'))
+    path('musicband/accounts/', include('allauth.urls')),
 ]

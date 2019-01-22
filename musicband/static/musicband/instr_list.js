@@ -1,9 +1,17 @@
-var csrftoken = Cookies.get("csrftoken"); // получает токен безопасности
+const csrftoken = Cookies.get("csrftoken"); // получает токен безопасности
+const tel = /^\+7-\d{5}-\d{5}$/gm; //регулярка телефона российского
+
+function Expand(elm) {
+    $(elm).toggleClass("fa-caret-down fa-caret-up");
+    $(".expand-menu").toggle()
+}
+
 // Операции над таблицой данных
-    $("table").click(function (event) {
+$(document).ready(function () {
+    $("body").click(function (event) {
         // Функция включения редактирования таблицы
         if ($(event.target).is(".fas.fa-edit")){
-            var td = $(event.target).parent().siblings("td").not(":last-child");
+            let td = $(event.target).parent().siblings("td").not(":last-child");
             if (td.attr("contenteditable")){
                 td.removeAttr("contenteditable");
                 td.toggleClass("skyblue");
@@ -12,13 +20,13 @@ var csrftoken = Cookies.get("csrftoken"); // получает токен без�
                 td.not(":nth-child(8)").attr("contenteditable","True");
                 td.toggleClass("skyblue");
                 $(event.target).siblings(".fas.fa-trash-alt").replaceWith("<i class=\"fas fa-save\"></i>");
-            };
-        };
+            }
+        }
         // если нажата кнопка сохранить отпаравляет request.POST со словарём из ячеек таблицы (работает только в редактируемом поле)
         if ($(event.target).is(".fas.fa-save")){
-            var st = $(event.target).parent().siblings("td:not(:last-child):not(:nth-child(8))");
+            let st = $(event.target).parent().siblings("td:not(:last-child):not(:nth-child(8))");
             if(st.attr("contenteditable")){
-                var dit = {};
+                let dit = {};
                 st.map(function (k,v) {return dit[v.dataset.key] = v.innerText}); // создаёт словарь ключ значение из текущей строки на сайт
                 dit = JSON.stringify(dit); // перводит в JSON полученый ранее словарь
                 $.post("",{csrfmiddlewaretoken:csrftoken, json_table:dit},function () {
@@ -29,11 +37,11 @@ var csrftoken = Cookies.get("csrftoken"); // получает токен без�
                 td.toggleClass("skyblue");
                 $(event.target).replaceWith("<i class=\"fas fa-trash-alt\"></i>");
 
-            };
-        };
+            }
+        }
         //Функция добавления нового инструмента
         if ($(event.target).is(".fas.fa-plus-square")){
-            var new_tr_html = "<tr>\n" +
+            let new_tr_html = "<tr>\n" +
                 "<td data-key=\"id\" class=\"skyblue\" contenteditable='true' style=\'display:none;\'></td>\n" +
                 "<td data-key=\"instrument_name\" class=\"skyblue\" contenteditable=\'true\'></td>\n" +
                 "<td data-key=\"instrument_property\" class=\"skyblue\" contenteditable='true'></td>\n"+
@@ -45,29 +53,34 @@ var csrftoken = Cookies.get("csrftoken"); // получает токен без�
                 "<td data-key=\"responsible\" class=\"skyblue\" contenteditable='true'></td>\n"+
                 "<td>\n" +
                 "<i class=\"fas fa-edit\"></i>\n" +
-                "<i class=\"fas fa-trash-alt\"></i>\n" +
-                "</td>"
-                "</tr>"
+                "<i class=\"fas fa-save\"></i>\n" +
+                "</td>\n"+
+                "</tr>";
             $("tbody").append(new_tr_html);
-        };
+        }
         // Функция удаления поля из базы и из html для вновь созданных полей
         if ($(event.target).is(".fas.fa-trash-alt")){
-            var del_btn = $(event.target);
+            let del_btn = $(event.target);
             $("body").append("<div class=\'shadow\'></div>\n" +
                 "<div class=\'confirm-delete\'>\n" +
                 "<p>Вы точно хотите удалить этот пункт?</p>\n" +
-                "<button class=\'yes\'>Yes</button>\n" +
-                "<button class=\'no\'>No</button>\n"+
+                "<button class=\'yes\'>Да</button>\n" +
+                "<button class=\'no\'>Нет</button>\n"+
                 "</div>"
             );
+            // удалить окно если нажать не на окне подтверждения
+            $("div.shadow").click(function () {
+                $("div.shadow").remove();
+                $("div.confirm-delete").remove();
+            });
             $("div.confirm-delete").click(function (event) {
                 if ($(event.target).is("button.no")){
                     $("div.shadow").remove();
                     $("div.confirm-delete").remove();
-                };
+                }
                 if ($(event.target).is("button.yes")){
                     del_btn.parent().parent().remove();
-                    var id = del_btn.parent().parent().attr("id");
+                    let id = del_btn.parent().parent().attr("id");
                     $("div.shadow").remove();
                     $("div.confirm-delete").remove();
                     $.ajax({
@@ -82,8 +95,8 @@ var csrftoken = Cookies.get("csrftoken"); // получает токен без�
                             $("#main_table").load(document.URL + " #main_table_content") //обновляет тело таблице после сохранения
                         },
                     });
-                };
+                }
             });
-        };
+        }
     });
-
+});

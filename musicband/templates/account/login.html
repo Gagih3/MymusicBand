@@ -1,0 +1,66 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<div class="row"><h1 class="mx-auto">{% trans "Sign In" %}</h1></div>
+
+{% get_providers as socialaccount_providers %}
+
+{% if socialaccount_providers %}
+<p>{% blocktrans with site.name as site_name %}Please sign in with one
+of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+<div class="socialaccount_ballot">
+
+  <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </ul>
+
+  <div class="login-or">{% trans 'or' %}</div>
+
+</div>
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+<div class="row">
+    <p class="mx-auto">Если вы ещё не завели аккаунт, пожалуйста сначала
+    <a href="{% url 'account_signup' %}">зарегистрируйтесь</a></p>
+</div>
+{% endif %}
+<div class="row">
+    <form class="login mx-auto" method="POST" action="{% url 'account_login' %}">
+      {% csrf_token %}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Логин</span>
+            </div>
+            {{ form.login }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Пароль</span>
+            </div>
+            {{ form.password }}
+        </div>
+        <div class="form-row mb-3">
+            <div class="custom-control custom-checkbox mx-auto">
+                {{ form.remember }}
+                <label class="custom-control-label" for="{{ form.remember.id_for_label }}">Запомнить меня</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="mx-auto ">
+                <a class="button secondaryAction btn btn-secondary" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                <button class="primaryAction btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

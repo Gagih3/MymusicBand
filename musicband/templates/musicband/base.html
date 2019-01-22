@@ -3,18 +3,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>MusicBand</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static "musicband/style.css" %}" type="text/css">
     <link rel="icon" href="{% static "musicband/favicon.ico" %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 </head>
 <body>
-    {% block instrtable %}
-        {% include "musicband/instrument_table.html" %}
-    {% endblock %}
+    {% load account %}
+    <div class="main-container">
+        <div class="head-menu">
+            <div class="head-wrapper">
+                {% if user.is_authenticated %}
+                    <i class="fas fa-home fa-2x"></i>
+                {% endif %}
+                <div class="user-container">
+                    <div class="user-main">
+                        <p class="username">{% user_display user %}</p>
+                    </div>
+                    {% if user.is_authenticated %}
+                        {% include 'account/logout.html' %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if user.is_authenticated  %}
+        <div class="body-container">
+            <div class="left-body-container">
+                <ul class="left-sidebar-container">
+                    <li><i class="fas fa-home"></i><a href="/musicband/">Главная</a></li>
+                    <li><i class="fas fa-guitar"></i><a href="#">Группы</a><i class="fas fa-caret-down" onclick="Expand(this)"></i></li>
+                    <ul class="expand-menu" style="display: none">
+                        <hr>
+                            <li><a href="#">Список</a></li>
+                            <li><a href="#">Менеджмент</a></li>
+                            <li><a href="#">Связаться</a></li>
+                            <li><a href="#">Моя группа</a></li>
+                        <hr>
+                    </ul>
+                    <li><i class="fas fa-money-check-alt"></i><a href="#">Заказать</a></li>
+                    <li><i class="fab fa-rocketchat"></i><a href="#">Форум</a></li>
+                    <li><i class="fas fa-cogs"></i><a href="#">Настройки</a></li>
+                    <li><i class="fas fa-book-open"></i><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="middle-body-container">
+                {% include "musicband/instrument_table.html" %}
+            </div>
+            <div class="right-body-container">Здесь ещё чтонить</div>
+        </div>
+    </div>
+    {% else %}
+        <div class="container">
+            {% include "account/login.html" %}
+        </div>
+    {% endif %}
 </body>
+<script src="{% static "musicband/mask_func.js" %}"></script>
 <script src="{% static "musicband/instr_list.js" %}"></script>
 </html>
