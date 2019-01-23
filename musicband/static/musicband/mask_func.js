@@ -8,28 +8,39 @@ function setCaret(obj,row_index,caret_index) { // перемещение кар�
 }
 
 var targ = $("#11");
-var text1 = "+7-";
-var text2 = "-";
+var pattern = "+7-_____-_____";
+var row_couner = 0;
+var caret_couner = 3;
 $(targ).bind("keydown",function (event) {
+    var target = event.target;
     event.preventDefault(); // предотвращает стандартные действия(не пишет буквы)
     if (!isNaN(event.key)){ // позволяет вводить только числа
-        if (text1.length != 8){
-            text1 += event.key;
+        pattern = pattern.replace("_",event.key);
+        caret_couner++;
+        if(row_couner == 0){
+            target.innerHTML = "<div>"+ pattern.slice(0,caret_couner) + "</div>";
         }else{
-            if(text2.length != 6){
-                text2 += event.key;
-            }
+            target.childNodes[row_couner].innerText = pattern.slice(0,caret_couner);
         }
-        if (text2 == "-"){
-            event.target.innerText = `${text1}`;
-        } else{
-            event.target.innerText = `${text1}${text2}`;
-        }
-    }
+    }else{
+        switch (event.keyCode){
+            case 13: // enter
+                if(tel.exec(pattern)){ // pattern refresh if it full
+                    pattern = pattern.replace(/\d{5}-\d{5}/,"_____-_____");
+                    row_couner ++; // row append
+                    caret_couner = 3; //caret move
+                    $(target).append("<div></div>");
+                }
+                break;
+            case 8: // backspace
 
-    if (event.keyCode == 13 && tel.exec(event.target.innerText) != null){ // Enter pressed
-        event.target.innerHTML += "<br>\n"+"<br>";
-        setCaret(event.target,2,0)
+                break;
+            case 17 && 86: // ctrl + v
+
+                break;
+            default:
+                break;
+        }
     }
 });
 
