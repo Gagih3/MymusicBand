@@ -20,9 +20,10 @@ $(targ).bind("keydown",function (event) {
         caret_couner < 13 ? caret_couner++ : caret_couner;
         if(row_couner === 0){
             target.innerHTML = "<div>"+ pattern.slice(0,caret_couner >= 8 ? caret_couner + 1: caret_couner) + "</div>";
-            console.log(caret_couner)
+            setCaret(target.childNodes[row_couner],row_couner,caret_couner >= 8 ? caret_couner + 1: caret_couner);
         }else{
             target.childNodes[row_couner].innerText = pattern.slice(0,caret_couner >= 8 ? caret_couner + 1: caret_couner);
+            setCaret(target.childNodes[row_couner],0,caret_couner >= 8 ? caret_couner + 1: caret_couner);
         }
     }else{
         switch (event.keyCode){
@@ -32,6 +33,7 @@ $(targ).bind("keydown",function (event) {
                     row_couner ++; // row append
                     caret_couner = 3; //caret move
                     $(target).append("<div></div>");
+                    console.log(target.childNodes[row_couner])
                 }
                 break;
             case 8: // backspace
@@ -39,12 +41,12 @@ $(targ).bind("keydown",function (event) {
                     caret_couner === 3 ? caret_couner : caret_couner--;
                     pattern = pattern.replace(/\d(?=_)|\d$|\d(?=-_{5}$)/,"_");
                     target.innerText = pattern.slice(0,caret_couner <= 8 ? caret_couner : caret_couner +1);
-                    console.log(caret_couner)
+
                 }else{
                     caret_couner === 3 ? caret_couner : caret_couner--;
                     pattern = pattern.replace(/\d(?=_)|\d$|\d(?=-_{5}$)/,"_");
                     target.childNodes[row_couner].innerText = pattern.slice(0,caret_couner <= 8 ? caret_couner : caret_couner +1);
-                    console.log(caret_couner)
+
                 }
                 break;
             case 17 && 86: // ctrl + v

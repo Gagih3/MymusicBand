@@ -5571,8 +5571,6 @@
       <change afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/venv/pyvenv.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicband/static/musicband/instr_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/musicband/static/musicband/instr_list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/musicband/static/musicband/mask_func.js" beforeDir="false" afterPath="$PROJECT_DIR$/musicband/static/musicband/mask_func.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -5631,8 +5629,8 @@
           <file leaf-file-name="mask_func.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="594">
-                  <caret line="45" column="69" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="69" />
+                <state relative-caret-position="234">
+                  <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
                 </state>
               </provider>
             </entry>
@@ -5714,8 +5712,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-354" />
-    <option name="y" value="59" />
+    <option name="x" value="-120" />
+    <option name="y" value="108" />
     <option name="width" value="1940" />
     <option name="height" value="767" />
   </component>
@@ -5978,7 +5976,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548267207310</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="маска по сути готова пару деталей не хватает">
+      <created>1548358341085</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1548358341086</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -5991,7 +5996,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-354" y="59" width="1940" height="767" extended-state="0" />
+    <frame x="-120" y="108" width="1940" height="767" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32921812" />
@@ -6058,7 +6063,8 @@
     <MESSAGE value="немного модификации окна логина" />
     <MESSAGE value="эксперементы для работы" />
     <MESSAGE value="эксперементы для работы продолжение маска для телефона почти рабочая" />
-    <option name="LAST_COMMIT_MESSAGE" value="эксперементы для работы продолжение маска для телефона почти рабочая" />
+    <MESSAGE value="маска по сути готова пару деталей не хватает" />
+    <option name="LAST_COMMIT_MESSAGE" value="маска по сути готова пару деталей не хватает" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -6343,8 +6349,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="45" column="69" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="69" />
+        <state relative-caret-position="234">
+          <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
         </state>
       </provider>
     </entry>
