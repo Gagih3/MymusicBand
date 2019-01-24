@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca2a5100-cf46-411c-8409-52d2fd58bc1a" name="Default" comment="">
+    <list default="true" id="ca2a5100-cf46-411c-8409-52d2fd58bc1a" name="Default" comment="эксперементы для работы продолжение маска для телефона почти рабочая">
       <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/Django-2.1.4.dist-info/DESCRIPTION.rst" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/Django-2.1.4.dist-info/INSTALLER" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/Django-2.1.4.dist-info/LICENSE.txt" afterDir="false" />
@@ -5572,6 +5572,7 @@
       <change afterPath="$PROJECT_DIR$/venv/pyvenv.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicband/static/musicband/instr_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/musicband/static/musicband/instr_list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/musicband/static/musicband/mask_func.js" beforeDir="false" afterPath="$PROJECT_DIR$/musicband/static/musicband/mask_func.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -5621,17 +5622,8 @@
           <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/musicband/static/musicband/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="instr_list.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/musicband/static/musicband/instr_list.js">
-              <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="18">
-                  <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="67" />
+                  <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
                 </state>
               </provider>
             </entry>
@@ -5639,8 +5631,8 @@
           <file leaf-file-name="mask_func.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="277">
-                  <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
+                <state relative-caret-position="594">
+                  <caret line="45" column="69" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="69" />
                 </state>
               </provider>
             </entry>
@@ -5722,8 +5714,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-74" />
-    <option name="y" value="168" />
+    <option name="x" value="-354" />
+    <option name="y" value="59" />
     <option name="width" value="1940" />
     <option name="height" value="767" />
   </component>
@@ -5830,6 +5822,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Sqlite (Xerial)" />
     <property name="database.console.LAST_STATE" value="false" />
+    <property name="jsx.switch.disabled" value="true" />
+    <property name="last.edited.regexp" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -5977,7 +5971,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548185613019</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="эксперементы для работы продолжение маска для телефона почти рабочая">
+      <created>1548267207310</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1548267207310</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -5990,7 +5991,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-74" y="168" width="1940" height="767" extended-state="0" />
+    <frame x="-354" y="59" width="1940" height="767" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32921812" />
@@ -6000,7 +6001,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32784638" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4973404" visible="true" weight="0.31269842" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49806452" weight="0.5467033" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13670212" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13829787" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.26" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32967743" />
@@ -6009,38 +6010,38 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info anchor="right" x="0" y="0" width="352" height="485" id="Documentation" order="4" side_tool="true" weight="0.32967743" />
-      <window_info anchor="bottom" id="Database Console" order="8" weight="0.33219954" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" x="0" y="0" width="352" height="485" id="Documentation" order="4" side_tool="true" weight="0.32967743" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="8" weight="0.33219954" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16116504" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32921812" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32921812" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49806452" visible="true" weight="0.29228488" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32784638" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" x="0" y="0" width="352" height="485" id="Documentation" order="5" side_tool="true" weight="0.32967743" />
       <window_info anchor="right" id="Database" order="4" weight="0.26" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49806452" weight="0.5467033" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5019355" side_tool="true" weight="0.28284672" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32921812" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32967743" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.33219954" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32784638" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -6056,11 +6057,12 @@
     <MESSAGE value="не увидел коммиты в гите надо проверить" />
     <MESSAGE value="немного модификации окна логина" />
     <MESSAGE value="эксперементы для работы" />
-    <option name="LAST_COMMIT_MESSAGE" value="эксперементы для работы" />
+    <MESSAGE value="эксперементы для работы продолжение маска для телефона почти рабочая" />
+    <option name="LAST_COMMIT_MESSAGE" value="эксперементы для работы продолжение маска для телефона почти рабочая" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -6315,13 +6317,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/musicband/static/musicband/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/musicband/templates/musicband/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -6331,15 +6326,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/musicband/static/musicband/instr_list.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/musicband/static/musicband/style.css">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="67" />
+          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
+        <state relative-caret-position="594">
+          <caret line="45" column="69" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="69" />
         </state>
       </provider>
     </entry>

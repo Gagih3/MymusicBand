@@ -1,5 +1,4 @@
 const csrftoken = Cookies.get("csrftoken"); // получает токен безопасности
-const tel = /^\+7-\d{5}-\d{5}$/gm; //регулярка телефона российского
 
 function Expand(elm) {
     $(elm).toggleClass("fa-caret-down fa-caret-up");
