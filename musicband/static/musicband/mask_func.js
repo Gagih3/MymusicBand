@@ -1,49 +1,50 @@
-var listener =  function (event) {
-    if (event.type === "paste") {
-        var data = event.clipboardData.getData("text/plain");
-        if (!data.match(tel)){ // если не соответсвует регексу то не пускает
-            event.preventDefault();
-        }
-    }};
+var targ = $("#11").children()[2];
 
-const new_regex = /(?:^\+|(?<=\+)\d|(?<=\+\d)\-|(?<=\-)\d{1,5}|(?<=\+\d\-\d{5})\-)/gm;
-const tel = /\+\d\-\d{5}\-\d{5}/gm;
-var targ = $("#11");
-const allowed_keys = [187,189,48,49,50,51,52,53,54,55,56,57,107,109];
-const meta_keys = [8,13,17,37,38,39,40,46,88];
-$(targ).bind("keydown",function (e) {
-    let ctrl_v = e.ctrlKey && e.keyCode === 86,
-        ctrl_z = e.ctrlKey && e.keyCode === 90,
-        ctrl_c = e.ctrlKey && e.keyCode === 67,
-        ctrl_x = e.ctrlKey && e.keyCode === 88;
-    if (ctrl_x || ctrl_c || ctrl_z || ctrl_v || meta_keys.includes(e.keyCode)){ // стандартные команды
-        ['cut', 'copy', 'paste'].forEach(function(event) {
-            e.target.addEventListener(event,listener,false);
-        });
-        return true;
+jQuery.fn.PhoneMask = function (pattern) {
+    const element = this; // element обьект jQuery на который вешается эта функция (хз поч но просто this это Node)
+    var text = "";
+    function Handler(e) {
+        switch (e.type){
+            case "keyup": // по поднятию клавиши
+                text = e.target.innerText.replace(/Enter|\r?\n|\r/g,"");
+                console.log(text);
+                break;
+            case "keypress": // по нажатию клавиши
+                if(!isNaN(e.key) || e.keyCode === 43 || e.keyCode === 45){ // с числами по стабильнее но в целом 0-1ms
+                    console.time("comparison");
+                    text = (e.target.innerText).replace(/Enter|\r?\n|\r/g,""); // то что уже есть в поле
+
+
+                    console.timeEnd("comparison")
+                } else if (e.keyCode === 13){ // для enter
+                    // if (text.includes("\n")){
+                    //     e.preventDefault();
+                    // }
+                } else {
+                    e.preventDefault();
+                }
+                break;
+            case "paste": // при вставке
+
+                break;
+            default:
+                break;
+        }
     }
-    e.target.removeEventListener("paste",listener,false); // немножко оптимизаций для того что бы не вызывать одно и тоже 100 раз
-    if(allowed_keys.includes(e.keyCode)){ // разрешает вводить только цифры и + -
-        var str = e.target.innerText + e.key; // строка для сравнения (падает правильно все)
-        let m_result = "";
-        let i_result = "";
-        let m;
-        while ((m = new_regex.exec(str)) !== null) {
-            if (m.index === new_regex.lastIndex) {
-                new_regex.lastIndex++;
+
+
+    if(typeof pattern === "string"){
+       //add three event listeners
+        ["paste","keypress","keyup"].forEach(function (etype) {
+            if (this.addEventListener){
+                this.addEventListener(etype,Handler,false);
+            } else if (this.attachEvent){
+                this.attachEvent(etype,Handler);
             }
-            m.forEach((match) => {
-                m_result+=match;
-                i_result=m.input.replace(/Enter|\r?\n|\r/g,"");
-            });
-        }
-        if(m_result===i_result && m_result !== ""){
-            return true;
-        }else{
-            return false;
-        }
+        });
     }else {
-        return false;
+        throw "pattern must be string like +_-_____-_____ as you see _ underscore is placeholder for number";
     }
-});
+};
 
+$(targ).PhoneMask("+_-_____-_____");
