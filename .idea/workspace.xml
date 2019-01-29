@@ -5571,8 +5571,6 @@
       <change afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/venv/pyvenv.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicband/static/musicband/instr_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/musicband/static/musicband/instr_list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/musicband/static/musicband/mask_func.js" beforeDir="false" afterPath="$PROJECT_DIR$/musicband/static/musicband/mask_func.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -5616,8 +5614,8 @@
       <file leaf-file-name="mask_func.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+            <state relative-caret-position="360">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
             </state>
           </provider>
         </entry>
@@ -5697,8 +5695,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-142" />
-    <option name="y" value="197" />
+    <option name="x" value="-130" />
+    <option name="y" value="168" />
     <option name="width" value="1940" />
     <option name="height" value="867" />
   </component>
@@ -6017,7 +6015,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548706948063</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Новые переделки">
+      <created>1548789789425</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1548789789425</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -6030,7 +6035,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="121" y="213" width="1940" height="867" extended-state="0" />
+    <frame x="-130" y="168" width="1940" height="867" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32921812" />
@@ -6104,7 +6109,8 @@
     <MESSAGE value="маска..." />
     <MESSAGE value="промоушен" />
     <MESSAGE value="эксперементы для работы продолжение маска для телефона почти рабочая" />
-    <option name="LAST_COMMIT_MESSAGE" value="эксперементы для работы продолжение маска для телефона почти рабочая" />
+    <MESSAGE value="Новые переделки" />
+    <option name="LAST_COMMIT_MESSAGE" value="Новые переделки" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -6371,7 +6377,7 @@
     <entry file="file://$PROJECT_DIR$/musicband/static/musicband/instr_list.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+          <caret line="16" column="88" lean-forward="true" selection-start-line="16" selection-start-column="88" selection-end-line="16" selection-end-column="88" />
           <folding>
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
           </folding>
@@ -6380,8 +6386,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+        <state relative-caret-position="360">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
         </state>
       </provider>
     </entry>

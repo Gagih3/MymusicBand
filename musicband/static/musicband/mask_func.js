@@ -2,7 +2,7 @@ jQuery.fn.PhoneMask = function (pattern, state) {
     const element = this; // element обьект jQuery на который вешается эта функция (хз поч но просто this это Node)
     const sheme = pattern; // регулярное выражение
     var caret;
-    var text = ""; // вводимый текст
+    var str = ""; // вводимый текст
     function getCaretPosition() { // получить позицию коретки
           if (window.getSelection && window.getSelection().getRangeAt) {
                 var range = window.getSelection().getRangeAt(0);
@@ -33,12 +33,33 @@ jQuery.fn.PhoneMask = function (pattern, state) {
         switch (e.type) {
             case "keyup": // по поднятию клавиши
                     caret = getCaretPosition();
-                    text = splitValue(e.target.innerText,caret || 0,e.key);
+                    str = splitValue(e.target.innerText,caret || 0,e.key);
                 break;
             case "keypress": // по нажатию клавиши
                 if (!isNaN(e.key) || e.keyCode === 43 || e.keyCode === 45) { // с числами по стабильнее но в целом 0-1ms
-                    text = splitValue(e.target.innerText,caret || 0,e.key);
-                    console.log(text);
+                    str = splitValue(e.target.innerText,caret || 0,e.key);
+                    let m_result = "";
+                    let i_result = "";
+                    let m;
+                    while ((m = sheme.exec(str)) !== null) {
+                        if (m.index === sheme.lastIndex) {
+                            sheme.lastIndex++;
+                        }
+
+                        m.forEach((match) => {
+                            if (match !== undefined) {
+                                console.log(match,typeof match);
+                                m_result = match;
+                                i_result = m.input.replace(/Enter|\r?\n|\r/g,"");
+                            }
+                        });
+                    }
+                    console.log(m_result,i_result);
+                    if (m_result === i_result && m_result !== ""){
+                        return true;
+                    } else {
+                        // return false;
+                    }
                 } else if (e.keyCode === 13) { // для enter
 
                 } else {
