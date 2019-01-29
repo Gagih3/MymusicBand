@@ -5572,6 +5572,7 @@
       <change afterPath="$PROJECT_DIR$/venv/pyvenv.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicband/static/musicband/instr_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/musicband/static/musicband/instr_list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/musicband/static/musicband/mask_func.js" beforeDir="false" afterPath="$PROJECT_DIR$/musicband/static/musicband/mask_func.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -5602,43 +5603,26 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.36184615">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/musicband/templates/musicband/base.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="227">
-                  <caret line="66" column="61" selection-start-line="66" selection-start-column="61" selection-end-line="66" selection-end-column="62" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/musicband/static/musicband/style.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="18">
-                  <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="mask_func.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="288">
-                  <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/musicband/static/musicband/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mask_func.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -5713,8 +5697,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-48" />
-    <option name="y" value="289" />
+    <option name="x" value="-142" />
+    <option name="y" value="197" />
     <option name="width" value="1940" />
     <option name="height" value="867" />
   </component>
@@ -5724,6 +5708,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -5813,7 +5798,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -6026,7 +6010,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548611652208</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="эксперементы для работы продолжение маска для телефона почти рабочая">
+      <created>1548706948063</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1548706948063</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -6039,7 +6030,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-48" y="289" width="1940" height="867" extended-state="0" />
+    <frame x="121" y="213" width="1940" height="867" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32921812" />
@@ -6047,9 +6038,9 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32921812" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32784638" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4973404" visible="true" weight="0.43150684" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4973404" weight="0.43150684" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4973404" weight="0.54657537" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.14148936" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14148936" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.26" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32967743" />
@@ -6105,7 +6096,6 @@
     <MESSAGE value="не увидел коммиты в гите надо проверить" />
     <MESSAGE value="немного модификации окна логина" />
     <MESSAGE value="эксперементы для работы" />
-    <MESSAGE value="эксперементы для работы продолжение маска для телефона почти рабочая" />
     <MESSAGE value="маска по сути готова пару деталей не хватает" />
     <MESSAGE value="просто красиво(срань)" />
     <MESSAGE value="забожил с маской для телефонов" />
@@ -6113,7 +6103,8 @@
     <MESSAGE value="улучшаем маску" />
     <MESSAGE value="маска..." />
     <MESSAGE value="промоушен" />
-    <option name="LAST_COMMIT_MESSAGE" value="промоушен" />
+    <MESSAGE value="эксперементы для работы продолжение маска для телефона почти рабочая" />
+    <option name="LAST_COMMIT_MESSAGE" value="эксперементы для работы продолжение маска для телефона почти рабочая" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -6237,13 +6228,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/allauth/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/allauth/models.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -6260,9 +6245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#633#670#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -6367,7 +6349,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/musicband/templates/musicband/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
+        <state relative-caret-position="542">
           <caret line="66" column="61" selection-start-line="66" selection-start-column="61" selection-end-line="66" selection-end-column="62" />
         </state>
       </provider>
@@ -6379,24 +6361,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/musicband/static/musicband/instr_list.js">
+    <entry file="file://$PROJECT_DIR$/musicband/static/musicband/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        <state relative-caret-position="540">
+          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/musicband/static/musicband/style.css">
+    <entry file="file://$PROJECT_DIR$/musicband/static/musicband/instr_list.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+        <state relative-caret-position="288">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        <state relative-caret-position="504">
+          <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
         </state>
       </provider>
     </entry>

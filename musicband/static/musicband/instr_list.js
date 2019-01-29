@@ -1,5 +1,5 @@
 const csrftoken = Cookies.get("csrftoken"); // получает токен безопасности
-
+const tel = /(^\+\d\-\d{1,5}\-\d{1,5})|(^\+\d\-\d{1,5}\-)|(^\+\d\-\d{1,5})|(^\+\d\-)|(^\+\d)|(^\+)/gm;
 function Expand(elm) {
     $(elm).toggleClass("fa-caret-down fa-caret-up");
     $(".expand-menu").toggle()
@@ -15,10 +15,12 @@ $(document).ready(function () {
                 td.removeAttr("contenteditable");
                 td.toggleClass("skyblue");
                 $(event.target).siblings(".fas.fa-save").replaceWith("<i class=\"fas fa-trash-alt\"></i>");
-            }else {
+                $(td[2]).PhoneMask(tel,"unbind");
+            } else {
                 td.not(":nth-child(8)").attr("contenteditable","True");
                 td.toggleClass("skyblue");
                 $(event.target).siblings(".fas.fa-trash-alt").replaceWith("<i class=\"fas fa-save\"></i>");
+                $(td[2]).PhoneMask(tel,"bind");
             }
         }
         // если нажата кнопка сохранить отпаравляет request.POST со словарём из ячеек таблицы (работает только в редактируемом поле)
