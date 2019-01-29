@@ -38,27 +38,17 @@ jQuery.fn.PhoneMask = function (pattern, state) {
             case "keypress": // по нажатию клавиши
                 if (!isNaN(e.key) || e.keyCode === 43 || e.keyCode === 45) { // с числами по стабильнее но в целом 0-1ms
                     str = splitValue(e.target.innerText,caret || 0,e.key);
-                    let m_result = "";
-                    let i_result = "";
-                    let m;
-                    while ((m = sheme.exec(str)) !== null) {
-                        if (m.index === sheme.lastIndex) {
-                            sheme.lastIndex++;
+                    let match = str.match(tel);
+                    if (match !== null) {
+                        let m = match.toString().replace(/(\,)/gm,"");
+                        console.log(m,str.replace(/Enter|\r?\n|\r/g,""));
+                        if (m === str.replace(/Enter|\r?\n|\r/g,"")) {
+                            return true;
+                        } else {
+                            return false;
                         }
-
-                        m.forEach((match) => {
-                            if (match !== undefined) {
-                                console.log(match,typeof match);
-                                m_result = match;
-                                i_result = m.input.replace(/Enter|\r?\n|\r/g,"");
-                            }
-                        });
-                    }
-                    console.log(m_result,i_result);
-                    if (m_result === i_result && m_result !== ""){
-                        return true;
                     } else {
-                        // return false;
+                        return false;
                     }
                 } else if (e.keyCode === 13) { // для enter
 
