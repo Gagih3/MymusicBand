@@ -1,59 +1,76 @@
 jQuery.fn.PhoneMask = function (pattern, state) {
     const element = this; // element обьект jQuery на который вешается эта функция (хз поч но просто this это Node)
     const sheme = pattern; // регулярное выражение
-    var caret;
-    var str = ""; // вводимый текст
-    function getCaretPosition() { // получить позицию коретки
-          if (window.getSelection && window.getSelection().getRangeAt) {
-                var range = window.getSelection().getRangeAt(0);
-                var selectedObj = window.getSelection();
-                var rangeCount = 0;
-                var childNodes = selectedObj.anchorNode.parentNode.childNodes;
-                for (var i = 0; i < childNodes.length; i++) {
-                    if (childNodes[i] == selectedObj.anchorNode) {
-                        break;
-                    }
-                    if (childNodes[i].outerHTML) {
-                        rangeCount += childNodes[i].outerHTML.length;
-                    } else if (childNodes[i].nodeType == 3) {
-                        rangeCount += childNodes[i].textContent.length;
-                    }
-                }
-                return range.startOffset + rangeCount;
-            }
-            return -1;
+
+    // check browser
+    var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+    var isFirefox = typeof InstallTrigger !== 'undefined';
+    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+    var isIE = /*@cc_on!@*/false || !!document.documentMode;
+    var isEdge = !isIE && !!window.StyleMedia;
+    var isChrome = window.navigator.appVersion.includes("Chrome");
+    var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+    isFirefox ? document.execCommand("defaultParagraphSeparator",false,"br") : false ; // if Firefox turnoff div wrapping
+    element.attr("style","white-space:pre");
+
+    function Chrome_cursor_pos () { // work perfect in chrome
+        var sel = document.getSelection();
+        sel.modify("extend", "backward", "documentboundary");
+        var pos = sel.toString().length;
+        if(sel.anchorNode != undefined){
+            sel.collapseToEnd();
         }
+        return pos;
+    };
+
+    function Get_caret_pos(Node) {
+        if(Node.childNodes.length === 1){ // for fist node
+            let range = document.getSelection().getRangeAt(0);
+            return range.endOffset;
+        }else {
+
+            return 0;
+        }
+    }
+
 
     function splitValue(value, index, key) {
         return value.substring(0, index) + key + value.substring(index);
     }
 
+    var caret;
+    var str = ""; // вводимый текст
     function Handler(e) {
 
         switch (e.type) {
+            case "click":
+
+                break;
             case "keyup": // по поднятию клавиши
-                    caret = getCaretPosition();
+                    caret = isChrome ? Chrome_cursor_pos(): "";
                     str = splitValue(e.target.innerText,caret || 0,e.key);
+                    console.log(Get_caret_pos(e.target));
                 break;
             case "keypress": // по нажатию клавиши
-                if (!isNaN(e.key) || e.keyCode === 43 || e.keyCode === 45) { // с числами по стабильнее но в целом 0-1ms
+                var key = e.key || e.originalEvent.key;
+                if (!isNaN(key) || key === "-" || key === "+") {
                     str = splitValue(e.target.innerText,caret || 0,e.key);
-                    let match = str.match(tel);
+                    let match = str.match(sheme);
                     if (match !== null) {
                         let m = match.toString().replace(/(\,)/gm,"");
-                        console.log(m,str.replace(/Enter|\r?\n|\r/g,""));
                         if (m === str.replace(/Enter|\r?\n|\r/g,"")) {
                             return true;
                         } else {
-                            return false;
+                            // return false;
                         }
                     } else {
-                        return false;
+                        // return false;
                     }
                 } else if (e.keyCode === 13) { // для enter
 
                 } else {
-                    return false;
+                    // return false;
                 }
                 break;
             case "paste": // при вставке
@@ -67,7 +84,7 @@ jQuery.fn.PhoneMask = function (pattern, state) {
 
 
     // вешаем или снимаем 3 лиснера
-    ["paste","keypress","keyup"].forEach(function (etype) {
+    ["paste","keypress","keyup","click"].forEach(function (etype) {
         if (state === "bind") {
             element.bind(etype, Handler);
         } else if (state === "unbind") {
