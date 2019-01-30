@@ -38,13 +38,14 @@ jQuery.fn.PhoneMask = function (pattern, state) {
     }
 
 
-    function splitValue(value, index, key) { // rework it
+    function splitValue(value, index, key) { // rework it every time i press enter the index get wrong data
         let key1 = key.replace(/Enter|\r?\n|\r/g,"");
-        if (value === ""){
+        let val1 = value.replace(/\s|\n/gm,"");
+        console.log(value.replace(/\s|\n/gm,""),index,key1);
+        if (value === "\n"){
             return key1
         } else {
             let retval = value.substring(0, index) + key1 + value.substring(index);
-            console.log(value.substring(0, index),"+key+",value.substring(index).replace(/\n/gm,""));
             return retval;
         }
 
@@ -59,11 +60,12 @@ jQuery.fn.PhoneMask = function (pattern, state) {
 
                 break;
             case "keyup": // по поднятию клавиши
-                    caret = isChrome ? Chrome_cursor_pos(): Get_caret_pos(e.target);
+
                     // str = splitValue(e.target.innerText,caret,key);
                 break;
             case "keypress": // по нажатию клавиши
                 if (!isNaN(key) || key === "-" || key === "+") {
+                    caret = isChrome ? Chrome_cursor_pos(): Get_caret_pos(e.target);
                     str = splitValue(e.target.innerText,caret||0,key);
                     let match = str.match(sheme);
                     if (match !== null) {
@@ -77,7 +79,7 @@ jQuery.fn.PhoneMask = function (pattern, state) {
                         // return false;
                     }
                 } else if (e.keyCode === 13) { // для enter
-
+                    caret = isChrome ? Chrome_cursor_pos(): Get_caret_pos(e.target);
                 } else {
                     // return false;
                 }
