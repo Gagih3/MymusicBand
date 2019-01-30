@@ -55,12 +55,8 @@ jQuery.fn.PhoneMask = function (pattern, state) {
     function Handler(e) {
         var key = e.key || e.originalEvent.key;
         switch (e.type) {
-            case "click":
-
-                break;
             case "keyup": // по поднятию клавиши
                     caret = isChrome ? Chrome_cursor_pos(): Get_caret_pos(e.target);
-                    // str = splitValue(e.target.innerText,caret,key);
                 break;
             case "keypress": // по нажатию клавиши
                 if (!isNaN(key) || key === "-" || key === "+") {
@@ -98,7 +94,7 @@ jQuery.fn.PhoneMask = function (pattern, state) {
 
 
     // вешаем или снимаем 3 лиснера
-    ["paste","keypress","keyup","click"].forEach(function (etype) {
+    ["paste","keypress","keyup"].forEach(function (etype) {
         if (state === "bind") {
             element.bind(etype, Handler);
         } else if (state === "unbind") {
