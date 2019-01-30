@@ -24,38 +24,47 @@ jQuery.fn.PhoneMask = function (pattern, state) {
         return pos;
     };
 
-    function Get_caret_pos(Node) {
+    function Get_caret_pos(Node) { // it probably work fine
         if(Node.childNodes.length === 1){ // for fist node
             let range = document.getSelection().getRangeAt(0);
             return range.endOffset;
         }else {
-
-            return 0;
+            let range = document.getSelection().getRangeAt(0);
+            let caretpos = range.cloneRange();
+            caretpos.selectNodeContents(Node);
+            caretpos.setEnd(range.endContainer,range.endOffset);
+            return caretpos.toString().length;
         }
     }
 
 
-    function splitValue(value, index, key) {
-        return value.substring(0, index) + key + value.substring(index);
+    function splitValue(value, index, key) { // rework it
+        let key1 = key.replace(/Enter|\r?\n|\r/g,"");
+        if (value === ""){
+            return key1
+        } else {
+            let retval = value.substring(0, index) + key1 + value.substring(index);
+            console.log(value.substring(0, index),"+key+",value.substring(index).replace(/\n/gm,""));
+            return retval;
+        }
+
     }
 
     var caret;
     var str = ""; // вводимый текст
     function Handler(e) {
-
+        var key = e.key || e.originalEvent.key;
         switch (e.type) {
             case "click":
 
                 break;
             case "keyup": // по поднятию клавиши
-                    caret = isChrome ? Chrome_cursor_pos(): "";
-                    str = splitValue(e.target.innerText,caret || 0,e.key);
-                    console.log(Get_caret_pos(e.target));
+                    caret = isChrome ? Chrome_cursor_pos(): Get_caret_pos(e.target);
+                    // str = splitValue(e.target.innerText,caret,key);
                 break;
             case "keypress": // по нажатию клавиши
-                var key = e.key || e.originalEvent.key;
                 if (!isNaN(key) || key === "-" || key === "+") {
-                    str = splitValue(e.target.innerText,caret || 0,e.key);
+                    str = splitValue(e.target.innerText,caret||0,key);
                     let match = str.match(sheme);
                     if (match !== null) {
                         let m = match.toString().replace(/(\,)/gm,"");

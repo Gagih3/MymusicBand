@@ -5571,9 +5571,7 @@
       <change afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/venv/pyvenv.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/musicband/static/musicband/mask_func.js" beforeDir="false" afterPath="$PROJECT_DIR$/musicband/static/musicband/mask_func.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicband/static/musicband/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/musicband/static/musicband/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -5616,8 +5614,8 @@
       <file leaf-file-name="mask_func.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+            <state relative-caret-position="162">
+              <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -5696,9 +5694,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-184" />
-    <option name="y" value="245" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-166" />
+    <option name="y" value="556" />
     <option name="width" value="1940" />
     <option name="height" value="830" />
   </component>
@@ -6038,7 +6036,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548793236101</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="ебучий ff">
+      <created>1548873623446</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1548873623446</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -6051,7 +6056,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="202" y="303" width="1940" height="830" extended-state="0" />
+    <frame x="144" y="443" width="1940" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32921812" />
@@ -6128,7 +6133,8 @@
     <MESSAGE value="Новые переделки" />
     <MESSAGE value="56426256" />
     <MESSAGE value="Вот теперь работает от души" />
-    <option name="LAST_COMMIT_MESSAGE" value="Вот теперь работает от души" />
+    <MESSAGE value="ебучий ff" />
+    <option name="LAST_COMMIT_MESSAGE" value="ебучий ff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -6392,8 +6398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+        <state relative-caret-position="162">
+          <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
         </state>
       </provider>
     </entry>
