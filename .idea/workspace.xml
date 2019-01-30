@@ -5614,8 +5614,8 @@
       <file leaf-file-name="mask_func.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+            <state relative-caret-position="360">
+              <caret line="75" column="32" lean-forward="true" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -5695,8 +5695,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-182" />
-    <option name="y" value="281" />
+    <option name="x" value="-283" />
+    <option name="y" value="306" />
     <option name="width" value="1940" />
     <option name="height" value="830" />
   </component>
@@ -6050,7 +6050,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548877401869</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="мать моя женщина это выглядит неплохо надо чуть чуть шлифануть">
+      <created>1548878453470</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1548878453470</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView">
@@ -6063,7 +6070,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="195" y="575" width="1940" height="830" extended-state="0" />
+    <frame x="222" y="314" width="1940" height="830" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32921812" />
@@ -6142,7 +6149,8 @@
     <MESSAGE value="Вот теперь работает от души" />
     <MESSAGE value="ебучий ff" />
     <MESSAGE value="need rework compile string function" />
-    <option name="LAST_COMMIT_MESSAGE" value="need rework compile string function" />
+    <MESSAGE value="мать моя женщина это выглядит неплохо надо чуть чуть шлифануть" />
+    <option name="LAST_COMMIT_MESSAGE" value="мать моя женщина это выглядит неплохо надо чуть чуть шлифануть" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -6406,8 +6414,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/musicband/static/musicband/mask_func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+        <state relative-caret-position="360">
+          <caret line="75" column="32" lean-forward="true" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
         </state>
       </provider>
     </entry>
