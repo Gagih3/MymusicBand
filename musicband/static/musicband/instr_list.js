@@ -1,5 +1,5 @@
 const csrftoken = Cookies.get("csrftoken"); // получает токен безопасности
-const tel = /(^\+\d\-\d{1,5}\-\d{1,5})|(^\+\d\-\d{1,5}\-)|(^\+\d\-\d{1,5})|(^\+\d\-)|(^\+\d)|(^\+)/gm;
+const tel = /^\+\d\-\d{1,5}\-\d{1,5}|^\+\d\-\d{1,5}\-|^\+\d\-\d{1,5}|^\+\d\-|^\+\d|^\+/gm;
 function Expand(elm) {
     $(elm).toggleClass("fa-caret-down fa-caret-up");
     $(".expand-menu").toggle()

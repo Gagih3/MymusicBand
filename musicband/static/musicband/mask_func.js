@@ -14,7 +14,7 @@ jQuery.fn.PhoneMask = function (pattern, state) {
     isFirefox ? document.execCommand("defaultParagraphSeparator",false,"br") : false ; // if Firefox turnoff div wrapping
     element.attr("style","white-space:pre");
 
-    function Chrome_cursor_pos () { // work perfect in chrome
+    function Chrome_cursor_pos () { // work perfect in late versions of chrome
         var sel = document.getSelection();
         sel.modify("extend", "backward", "documentboundary");
         var pos = sel.toString().length;
@@ -24,11 +24,11 @@ jQuery.fn.PhoneMask = function (pattern, state) {
         return pos;
     };
 
-    function Get_caret_pos(Node) { // it probably work fine
+    function Get_caret_pos(Node) { // it probably work fine for me
         if(Node.childNodes.length === 1){ // for fist node
             let range = document.getSelection().getRangeAt(0);
             return range.endOffset;
-        }else {
+        }else { // if number of nodes grows up
             let range = document.getSelection().getRangeAt(0);
             let caretpos = range.cloneRange();
             caretpos.selectNodeContents(Node);
@@ -37,15 +37,21 @@ jQuery.fn.PhoneMask = function (pattern, state) {
         }
     }
 
+    function Replacer(str,offset,s) {
+        if (offset === 0){
+            return "+"
+        } else {
+            return "\n+"
+        }
+    }
 
     function splitValue(value, index, key) { // rework it every time i press enter the index get wrong data
-        let key1 = key.replace(/Enter|\r?\n|\r/g,"");
         let val1 = value.replace(/\s|\n/gm,"");
         if (value === "\n"){
-            return key1
+            return key
         } else {
-            let retval = val1.substring(0, index) + key1 + val1.substring(index);
-            return retval;
+            let retval = val1.substring(0, index) + key + val1.substring(index);
+            return retval.replace(/\+/gm,Replacer);
         }
 
     }
@@ -56,29 +62,35 @@ jQuery.fn.PhoneMask = function (pattern, state) {
         var key = e.key || e.originalEvent.key;
         switch (e.type) {
             case "keyup": // по поднятию клавиши
+                try {
                     caret = isChrome ? Chrome_cursor_pos(): Get_caret_pos(e.target);
+                } catch {
+                    caret = Get_caret_pos(e.target);
+                }
                 break;
             case "keypress": // по нажатию клавиши
                 if (!isNaN(key) || key === "-" || key === "+") {
-                    caret = isChrome ? Chrome_cursor_pos(): Get_caret_pos(e.target);
+                    try {
+                        caret = isChrome ? Chrome_cursor_pos(): Get_caret_pos(e.target);
+                    } catch {
+                        caret = Get_caret_pos(e.target);
+                    }
                     str = splitValue(e.target.innerText,caret||0,key);
-                    console.log(str);
-                    let match = str.match(sheme); // тут всё рушится маленько ибо в матч падает больше чем нужно и он просто не видет совпадение следующее
+                    let match = str.match(sheme);
                     if (match !== null) {
                         let m = match.toString().replace(/(\,)/gm,"");
-                        console.log(m,":",str);
+                        m = m.replace(/\+/gm,Replacer);
+                        console.log(m,"<=>",str);
                         if (m === str) {
-                            console.log("true m === str");
                             return true;
                         } else {
-                            console.log("false m !== str");
                             return false;
                         }
                     } else {
                         return false;
                     }
                 } else if (e.keyCode === 13) { // для enter
-                    caret = isChrome ? Chrome_cursor_pos(): Get_caret_pos(e.target);
+
                 } else {
                     return false;
                 }
