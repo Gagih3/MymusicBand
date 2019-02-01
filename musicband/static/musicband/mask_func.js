@@ -1,3 +1,4 @@
+
 jQuery.fn.PhoneMask = function (pattern, state) {
     const element = this; // element обьект jQuery на который вешается эта функция (хз поч но просто this это Node)
     const sheme = pattern; // регулярное выражение
@@ -25,10 +26,10 @@ jQuery.fn.PhoneMask = function (pattern, state) {
     };
 
     function Get_caret_pos(Node) { // it probably work fine for me
-        if(Node.childNodes.length === 1){ // for fist node
+        if (Node.childNodes.length === 1) { // for fist node
             let range = document.getSelection().getRangeAt(0);
             return range.endOffset;
-        }else { // if number of nodes grows up
+        }  { // if number of nodes grows up
             let range = document.getSelection().getRangeAt(0);
             let caretpos = range.cloneRange();
             caretpos.selectNodeContents(Node);
@@ -37,9 +38,11 @@ jQuery.fn.PhoneMask = function (pattern, state) {
         }
     }
 
-    function Replacer(str,offset,s) {
+    function Replacer(str,offset,s) { // поработать над этим немного
         if (offset === 0){
             return "+"
+        } else if (offset === 2){
+            return "+";
         } else {
             return "\n+"
         }
@@ -51,10 +54,16 @@ jQuery.fn.PhoneMask = function (pattern, state) {
             return key
         } else {
             let retval = val1.substring(0, index) + key + val1.substring(index);
-            return retval.replace(/\+/gm,Replacer);
+            return retval.replace(/\b\+/gm,Replacer);
         }
 
     }
+
+    function Fabrica(str,rowcount,caret,key_pressed) {
+        console.log("строка:"+str+" число строк:"+rowcount+" позиция коретки:"+caret+" клавиша:"+key_pressed);
+        var innerText = str === ""? key_pressed:str; // при первом нажатии
+    }
+
 
     var caret;
     var str = ""; // вводимый текст
@@ -68,6 +77,7 @@ jQuery.fn.PhoneMask = function (pattern, state) {
                     caret = Get_caret_pos(e.target);
                 }
                 break;
+
             case "keypress": // по нажатию клавиши
                 if (!isNaN(key) || key === "-" || key === "+") {
                     try {
@@ -76,11 +86,11 @@ jQuery.fn.PhoneMask = function (pattern, state) {
                         caret = Get_caret_pos(e.target);
                     }
                     str = splitValue(e.target.innerText,caret||0,key);
+                    // Fabrica(e.target.innerText,e.target.childElementCount,caret||0,key);
                     let match = str.match(sheme);
                     if (match !== null) {
                         let m = match.toString().replace(/(\,)/gm,"");
-                        m = m.replace(/\+/gm,Replacer);
-                        console.log(m,"<=>",str);
+                        m = m.replace(/\b\+/gm,Replacer);
                         if (m === str) {
                             return true;
                         } else {
@@ -95,6 +105,7 @@ jQuery.fn.PhoneMask = function (pattern, state) {
                     return false;
                 }
                 break;
+
             case "paste": // при вставке
 
                 break;
@@ -106,7 +117,7 @@ jQuery.fn.PhoneMask = function (pattern, state) {
 
 
     // вешаем или снимаем 3 лиснера
-    ["paste","keypress","keyup"].forEach(function (etype) {
+    ["paste","keypress","keyup","input"].forEach(function (etype) {
         if (state === "bind") {
             element.bind(etype, Handler);
         } else if (state === "unbind") {
