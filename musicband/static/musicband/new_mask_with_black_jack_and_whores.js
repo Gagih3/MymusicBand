@@ -1,29 +1,7 @@
-
 jQuery.fn.PhoneMaskv2 = function (pattern, state) {
     const element = this; // element обьект jQuery на который вешается эта функция (хз поч но просто this это Node)
     const sheme = pattern; // регулярное выражение
-
-    // check browser
-    var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-    var isFirefox = typeof InstallTrigger !== 'undefined';
-    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
-    var isIE = /*@cc_on!@*/false || !!document.documentMode;
-    var isEdge = !isIE && !!window.StyleMedia;
-    var isChrome = window.navigator.appVersion.includes("Chrome");
-    var isBlink = (isChrome || isOpera) && !!window.CSS;
-
-    isFirefox ? document.execCommand("defaultParagraphSeparator",false,"br") : false ; // if Firefox turnoff div wrapping
-    element.attr("style","white-space:pre");
-
-    function Chrome_cursor_pos () { // work perfect in late versions of chrome
-        var sel = document.getSelection();
-        sel.modify("extend", "backward", "documentboundary");
-        var pos = sel.toString().length;
-        if(sel.anchorNode != undefined){
-            sel.collapseToEnd();
-        }
-        return pos;
-    };
+    document.execCommand("defaultParagraphSeparator",false,"br");
 
     function Get_caret_pos(Node) { // it probably work fine for me
         if (Node.childNodes.length === 1) { // for fist node
@@ -32,28 +10,34 @@ jQuery.fn.PhoneMaskv2 = function (pattern, state) {
         }  { // if number of nodes grows up
             let range = document.getSelection().getRangeAt(0);
             let caretpos = range.cloneRange();
-                caretpos.selectNodeContents(Node);
-                caretpos.setEnd(range.endContainer,range.endOffset);
+            caretpos.selectNodeContents(Node);
+            caretpos.setEnd(range.endContainer,range.endOffset);
             return caretpos.toString().length;
         }
     }
 
 
     function Handler(e) {
-        var caret;
-        try {
-            caret = isChrome ? Chrome_cursor_pos(): Get_caret_pos(e.target);
-        } catch {
-            caret = Get_caret_pos(e.target);
+        if (e.type === "input") {
+            var text = e.target.innerText;
+            var matches = text.match(sheme) === null ? "" : text.match(sheme);
+            matches = matches.toString().replace(/\,/gm, "\n");
+            if (matches !== text.replace(/\n$/gm, "")) { //
+                $(e.target).css("color","red");
+            } else {
+                $(e.target).css("color","green")
+            }
+        } else {
+            if (/[^0-9\+\-]/.test(e.key) && e.key !== "Enter"){
+                return false;
+            }
         }
-        console.log(caret,e.target.innerText);
-
     }
 
     if (state === "bind") {
-        element.bind("input", Handler);
+        element.bind("input keypress", Handler);
     } else if (state === "unbind") {
-        element.unbind("input", Handler);
+        element.unbind("input keypress", Handler);
     } else {
         throw "state get 2 options 'bind' or 'unbind'.";
     }
