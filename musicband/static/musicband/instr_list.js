@@ -16,12 +16,12 @@ $(document).ready(function () {
                 td.removeAttr("contenteditable");
                 td.toggleClass("skyblue");
                 $(event.target).siblings(".fas.fa-save").replaceWith("<i class=\"fas fa-trash-alt\"></i>");
-                $(td[2]).PhoneMaskv2(tel,"unbind");
+                $(td[2]).PhoneMask(tel,"unbind");
             } else {
                 td.not(":nth-child(8)").attr("contenteditable","True");
                 td.toggleClass("skyblue");
                 $(event.target).siblings(".fas.fa-trash-alt").replaceWith("<i class=\"fas fa-save\"></i>");
-                $(td[2]).PhoneMaskv2(tel,"bind");
+                $(td[2]).PhoneMask(tel,"bind");
             }
         }
         // если нажата кнопка сохранить отпаравляет request.POST со словарём из ячеек таблицы (работает только в редактируемом поле)

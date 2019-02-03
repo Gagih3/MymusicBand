@@ -16,8 +16,9 @@ jQuery.fn.PhoneMaskv2 = function (pattern, state) {
         }
     }
 
-
+    var caret = 0;
     function Handler(e) {
+
         if (e.type === "input") {
             var text = e.target.innerText;
             var matches = text.match(sheme) === null ? "" : text.match(sheme);
@@ -25,9 +26,11 @@ jQuery.fn.PhoneMaskv2 = function (pattern, state) {
             if (matches !== text.replace(/\n$/gm, "")) { //
                 $(e.target).css("color","red");
             } else {
+                console.log(caret);
                 $(e.target).css("color","green")
             }
         } else {
+            caret = Get_caret_pos(e.target);
             if (/[^0-9\+\-]/.test(e.key) && e.key !== "Enter"){
                 return false;
             }
