@@ -6,12 +6,12 @@ from django.forms.models import model_to_dict
 from musicband.forms import MyLoginForm
 from .models import Instrument
 from django.views.generic.base import View
-from allauth.account.forms import LoginForm
 
 
 class MainView (View):
     template_name = "musicband/base.html"
     form = MyLoginForm()
+
     def get(self, request):
         """"Метод возвращает главную страницу и передаёт в контекст
         обьекты Instrument и словарь атрибутов этого обьекта"""
@@ -26,13 +26,12 @@ class MainView (View):
             json_dict = json.loads(request.POST["json_table"])  # конвертирует json в питоновский словарь dict
             get_dict = {k: v if v != '' else None for k, v in json_dict.items()}
             if get_dict["id"]:
-                base_upd = Instrument.objects.filter(id=get_dict["id"])  # выбирает поле в базе для обновления
+                base_upd = Instrument.objects.filter(id=get_dict["id"])  # выбирает поле в базе для обновления по id
                 base_upd.update(**get_dict)  # производит обновление нужного поля
                 return render(request, self.template_name)
             else:
-                new = Instrument.objects.create(**get_dict)
+                new = Instrument.objects.create(**get_dict)  # если id нет создаёт новое поле
                 return render(request, self.template_name)
-
 
     def delete(self, request):
         """Метод для удаления записи из базы"""
